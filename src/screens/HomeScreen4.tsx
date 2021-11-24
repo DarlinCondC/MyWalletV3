@@ -102,14 +102,14 @@ const styles = StyleSheet.create({
     Logo2: {
       width: 45,
       height: 45,
-      left: '-20%',
+      left: '-15%',
       top: 190,
     },
     Logo3: {
       width: 45,
       height: 45,
-      left: '5%',
-      top: 140
+      left: '15%',
+      top: 150
     },
     Logo4: {
       width: 45,

@@ -3,16 +3,10 @@ import React, {useState} from 'react'
 import { View, Text, Button, StyleSheet, SafeAreaView, Alert, TextInput, Image} from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
-
-
 //botones
 const Separator = () => (
     <View style={styles.separator} />
 );
-/*<Image
-            style={styles1.condorLogo}
-            source={require('./src/screens/img/condor.png')}
-          />*/
 
 const HomeScreen1 = () => {
     const navigation = useNavigation();
@@ -52,9 +46,7 @@ const HomeScreen1 = () => {
               onPress={() => navigation.navigate("Balance")}
             />
           </View>
-          <Text style={styles.title}>
-            Olvide mi contraseña !!
-          </Text> 
+          
         </View>
       </SafeAreaView>
     )

@@ -1,7 +1,7 @@
 //ventana de balance
 //elementos: balance sol, condor, botones enviar y recibir
 import React from 'react'
-import { View, Text, Button, StyleSheet, SafeAreaView, SectionList, Image, ScrollView, TextInput } from 'react-native'
+import { View, Button, StyleSheet, SafeAreaView, Image, TextInput } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 const Separator = () => (
@@ -14,12 +14,14 @@ const HomeScreen2 = () => {
     return (
       <SafeAreaView style={styles.container}>
         <View>
-            <TextInput style={styles.textInput} placeholder="CONDOR" />
-            <TextInput style={styles.textInput2} placeholder="SOLANA" />
-            <Image style={styles.LogoCondor} source={require('./img/condor.png')}/>
-            <Image style={styles.LogoSolana} source={require('./img/solana.png')}/>
+          <Image style={styles.LogoCondor} source={require('./img/condor.png')}/>
+          <TextInput style={styles.textInput} placeholder="CONDOR" />
+          <Image style={styles.LogoSolana} source={require('./img/solana.png')}/>
+          <TextInput style={styles.textInput2} placeholder="SOLANA" />
+          
+          
             <View style={styles.fixToText}>
-                <Button
+                <Button 
                   title="Enviar"
                   color= 'purple'
                   onPress={() => navigation.navigate("Enviar CNDR")}
@@ -116,16 +118,16 @@ const styles = StyleSheet.create({
       padding: 20,
     },
     LogoCondor: {
-      width: 90,
-      height: 90,
-      left: '-17%',
-      top: -260,
+      width: 80,
+      height: 80,
+      left: '35%',
+      top: 20,
     },
     LogoSolana: {
       width: 80,
       height: 80,
-      left: '-13%',
-      top: -230,
+      left: '35%',
+      top: 10,
     },
     Logo: {
       width: 50,

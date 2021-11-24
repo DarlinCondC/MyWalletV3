@@ -16,7 +16,12 @@ const HomeScreen5 = () => {
              color= 'purple' 
              onPress={() => Alert.alert("Copiado")}
             />
+            <Image style={styles.Logo} source={require('./img/cartera.png')}/>
+            <Image style={styles.Logo2} source={require('./img/assa.png')}/>
+            <Image style={styles.Logo3} source={require('./img/intercambio.png')}/>
+            <Image style={styles.Logo4} source={require('./img/configuracion.png')}/>
         </View>
+        
     )
 }
 
@@ -37,4 +42,28 @@ const styles = StyleSheet.create({
         padding: 10,
         alignItems: 'center'
     },
+    Logo: {
+        width: 50,
+        height: 50,
+        left: '-40%',
+        top: 440,
+      },
+      Logo2: {
+        width: 45,
+        height: 45,
+        left: '-12%',
+        top: 395,
+      },
+      Logo3: {
+        width: 45,
+        height: 45,
+        left: '15%',
+        top: 350
+      },
+      Logo4: {
+        width: 45,
+        height: 45,
+        left: '40%',
+        top: 305,
+      },
 })
