@@ -1,7 +1,7 @@
 //ventana de enviar token
 //elementos: direccion publica, monto y boton enviar
 import React from 'react'
-import { View, Text, Button, StyleSheet, number, SafeAreaView, text, SectionList, TextInput, Image, onChangeText, onChangeNumber, Platform, StatusBar, Alert } from 'react-native'
+import { View, Text, Button, StyleSheet, number, SafeAreaView, text, SectionList, TextInput, onChangeText, onChangeNumber, Platform, StatusBar, Alert } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 const Separator = () => (

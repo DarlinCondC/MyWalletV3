@@ -4,9 +4,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import HomeStackScreen from '../stacks/HomeStackScreen';
 import SettingsStackScreen from '../stacks/SettingsStackScreen';
 import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+
 
 const Tabs = () => {
     const Tab = createBottomTabNavigator();
+    const Stack = createNativeStackNavigator();
     return (
         <NavigationContainer>
             <Tab.Navigator screenOptions={{headerShown:false}}>
@@ -14,6 +18,7 @@ const Tabs = () => {
                 <Tab.Screen name="SettingsMenu" component={SettingsStackScreen} />
             </Tab.Navigator>
         </NavigationContainer>
+    
     );
 };
 

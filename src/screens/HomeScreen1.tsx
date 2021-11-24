@@ -1,7 +1,8 @@
 //ventana principal
 import React from 'react'
-import { View, Text, Button, StyleSheet, SafeAreaView, text, number, Alert, TextInput, Image, onChangeText, onChangeNumber, Platform, StatusBar } from 'react-native'
+import { View, Text, Button, StyleSheet, SafeAreaView, text, number, Alert, TextInput, Image, onChangeText, onChangeNumber } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+
 
 
 //botones
@@ -18,6 +19,7 @@ const HomeScreen1 = () => {
     const handlePress = () => console.log("Text pressed");
     return (
         <SafeAreaView style={styles.container}>
+          <Image style={styles.Logo} source={require('./img/condor.png')} />
         <View>
           <Text style={styles.princ} numberOfLines={1} onPress={handlePress}>CORREO ELECTRÓNICO</Text>
           <TextInput
@@ -105,5 +107,10 @@ const styles = StyleSheet.create({
       borderBottomColor: '#737373',
       borderBottomWidth: StyleSheet.hairlineWidth,
     },
+    Logo: {
+        width: 200,
+        height: 200,
+        alignItems: 'center'
+    }
 });
 

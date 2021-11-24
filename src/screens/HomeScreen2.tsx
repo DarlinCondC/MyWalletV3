@@ -4,6 +4,10 @@ import React from 'react'
 import { View, Text, Button, StyleSheet, SafeAreaView, text, SectionList, TextInput, Image, onChangeText, onChangeNumber, Platform, StatusBar } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
+const Separator = () => (
+  <View style={styles.separator} />
+);
+
 const DATA = [
   {
     title: "BALANCE",
@@ -41,6 +45,10 @@ const HomeScreen2 = () => {
                     onPress={() => navigation.navigate("Recibir CNDR")} 
                 />
             </View>
+            <Separator />
+            <Image style={styles.Logo} source={require('./img/cartera.png')} />
+            <Image style={styles.Logo} source={require('./img/intercambio.png')} />
+            <Image style={styles.Logo} source={require('./img/configuracion.png')} />
         </View>
         </SafeAreaView>
     )
@@ -54,6 +62,8 @@ const styles = StyleSheet.create({
       paddingTop: 50,
       alignItems: 'center',
       display: 'flex',
+      flexDirection: "row",
+      justifyContent: "center",
     },
     title: {
       textAlign: 'center',
@@ -101,6 +111,10 @@ const styles = StyleSheet.create({
       marginHorizontal: 16,
       padding: 20,
     },
+    Logo: {
+      width: 50,
+      height: 50,
+  }
     
 });
 
