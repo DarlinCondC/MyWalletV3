@@ -1,7 +1,7 @@
 //ventana de registro
 //elementos: correo, contraseña y boton registrar
-import React from 'react'
-import { View, Text, Button, StyleSheet, SafeAreaView, text, number, Alert, TextInput, Image, onChangeText, onChangeNumber, Platform, StatusBar } from 'react-native'
+import React, {useState} from 'react'
+import { View, Text, Button, StyleSheet, SafeAreaView, Alert, TextInput } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 const Separator = () => (
@@ -11,6 +11,8 @@ const Separator = () => (
 const HomeScreen3 = () => {
     const navigation = useNavigation();
     const handlePress = () => console.log("Text pressed");
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     return (
         <SafeAreaView style={styles.container}>
         <View>
@@ -19,17 +21,16 @@ const HomeScreen3 = () => {
           <Text style={styles.princ} numberOfLines={1} onPress={handlePress}>CORREO ELECTRÓNICO</Text>
           <TextInput
             style={styles.textInput}
-            onChangeText={onChangeText}
+            onChangeText={text => setEmail(text)}
             placeholder="Email"
-            value={text}
+            value={email}
           />
           <Text style={styles.princ} numberOfLines={1} onPress={handlePress}>CONTRASEÑA</Text>
           <TextInput
             style={styles.textInput}
-            onChangeText={onChangeNumber}
-            value={number}
+            onChangeText={text => setPassword}
+            value={password}
             placeholder="password"
-            keyboardType="numeric"
           />
         </View>
         <Separator />

@@ -1,6 +1,6 @@
 //ventana principal
-import React from 'react'
-import { View, Text, Button, StyleSheet, SafeAreaView, text, number, Alert, TextInput, Image, onChangeText, onChangeNumber } from 'react-native'
+import React, {useState} from 'react'
+import { View, Text, Button, StyleSheet, SafeAreaView, Alert, TextInput, Image} from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 
@@ -17,6 +17,8 @@ const Separator = () => (
 const HomeScreen1 = () => {
     const navigation = useNavigation();
     const handlePress = () => console.log("Text pressed");
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     return (
         <SafeAreaView style={styles.container}>
           <Image style={styles.Logo} source={require('./img/condor.png')} />
@@ -24,17 +26,16 @@ const HomeScreen1 = () => {
           <Text style={styles.princ} numberOfLines={1} onPress={handlePress}>CORREO ELECTRÓNICO</Text>
           <TextInput
             style={styles.textInput}
-            onChangeText={onChangeText}
+            onChangeText={text => setEmail(text)}
             placeholder="Email"
-            value={text}
+            value={email}
           />
           <Text style={styles.princ} numberOfLines={1} onPress={handlePress}>CONTRASEÑA</Text>
           <TextInput
             style={styles.textInput}
-            onChangeText={onChangeNumber}
-            value={number}
+            onChangeText={text => setPassword}
+            value={password}
             placeholder="password"
-            keyboardType="numeric"
           />
         </View>
         <Separator />
@@ -45,10 +46,11 @@ const HomeScreen1 = () => {
               color= 'purple'
               onPress={() => navigation.navigate("Registro")}
             />
-              <Button title="INICIAR SESIÓN" 
-              color= 'purple' 
-              onPress={() => navigation.navigate("Balance")} 
-              />
+            <Button
+              title="INICIO SESIÓN"
+              color= 'purple'
+              onPress={() => navigation.navigate("Balance")}
+            />
           </View>
           <Text style={styles.title}>
             Olvide mi contraseña !!
@@ -83,6 +85,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       fontStyle: 'italic',
       fontSize: 20,
+
     },
     textInput: {
       height: 40,

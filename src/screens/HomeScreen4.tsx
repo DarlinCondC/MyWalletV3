@@ -1,7 +1,7 @@
 //ventana de enviar token
 //elementos: direccion publica, monto y boton enviar
-import React from 'react'
-import { View, Text, Button, StyleSheet, number, SafeAreaView, text, SectionList, TextInput, onChangeText, onChangeNumber, Platform, StatusBar, Alert } from 'react-native'
+import React, {useState} from 'react'
+import { View, Text, Button, StyleSheet, SafeAreaView, SectionList, TextInput, Alert, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 const Separator = () => (
@@ -11,23 +11,27 @@ const Separator = () => (
 const HomeScreen4 = () => {
     const navigation = useNavigation();
     const handlePress = () => console.log("Text pressed");
+    const [email, setEmail] = useState('')
+    const [importe, setImporte] = useState('')
     return (
         <SafeAreaView style={styles.container}>
             <View>
             <Text style={styles.depo} numberOfLines={1} onPress={handlePress}>Wallet 1</Text>    
             <Separator />
+            <Image style={styles.LogoCond} source={require('./img/condor.png')} />
             <Text style={styles.depo} numberOfLines={1} onPress={handlePress}>Depositar</Text>
+            
                 <TextInput
                     style={styles.textInput}
-                    onChangeText={onChangeText}
+                    onChangeText={text => setEmail(text)}
                     placeholder="Dirección de CNDR del destinatario"
-                    value={text}
+                    value={email}
                 />
                 <TextInput
                     style={styles.textInput}
-                    onChangeText={onChangeNumber}
+                    onChangeText={text => setImporte(text)}
                     placeholder="Importe"
-                    value={number}
+                    value={importe}
                     keyboardType="numeric"
                 />
                 <Button 
@@ -35,6 +39,10 @@ const HomeScreen4 = () => {
                 color= 'purple' 
                 onPress={() => Alert.alert("Enviado")}/>
             </View>
+            <Image style={styles.Logo} source={require('./img/cartera.png')}/>
+            <Image style={styles.Logo2} source={require('./img/assa.png')}/>
+            <Image style={styles.Logo3} source={require('./img/intercambio.png')}/>
+            <Image style={styles.Logo4} source={require('./img/configuracion.png')}/>
         </SafeAreaView>
     )
 }
@@ -46,7 +54,7 @@ const styles = StyleSheet.create({
       flex: 1,
       paddingTop: 50,
       alignItems: 'center',
-      display: 'flex',
+
     },
     title: {
       textAlign: 'center',
@@ -54,6 +62,12 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       fontStyle: 'italic',
       fontSize: 20,
+    },
+    LogoCond: {
+      width: 80,
+      height: 80,
+      left: '30%',
+      top: 5,
     },
     textInput: {
       height: 40,
@@ -80,7 +94,28 @@ const styles = StyleSheet.create({
       borderBottomWidth: StyleSheet.hairlineWidth,
     },
     Logo: {
-        width: 66,
-        height: 58,
-    }
+      width: 50,
+      height: 50,
+      left: '-40%',
+      top: 240,
+    },
+    Logo2: {
+      width: 45,
+      height: 45,
+      left: '-20%',
+      top: 190,
+    },
+    Logo3: {
+      width: 45,
+      height: 45,
+      left: '5%',
+      top: 140
+    },
+    Logo4: {
+      width: 45,
+      height: 45,
+      left: '40%',
+      top: 100,
+    },
+    
 });

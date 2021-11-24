@@ -1,7 +1,7 @@
 //ventana de recibir token
 //elementos: codigo qr y direccion publica.
 import React from 'react'
-import { View, Text, Image, StyleSheet, TextInput, onChangeNumber, number, Button, Alert } from 'react-native'
+import { View, Text, Image, StyleSheet, TextInput, Button, Alert } from 'react-native'
 
 const HomeScreen5 = () => {
     return (
