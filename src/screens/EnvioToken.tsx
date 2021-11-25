@@ -1,14 +1,22 @@
 //ventana de enviar token
 //elementos: direccion publica, monto y boton enviar
-import React, {useState} from 'react'
-import { View, Text, Button, StyleSheet, SafeAreaView, SectionList, TextInput, Alert, Image } from 'react-native'
+import * as React from 'react'
+import {useState} from 'react'
+import { View, Text, Button, StyleSheet, SafeAreaView, SectionList, TextInput, Alert, Image,TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 const Separator = () => (
     <View style={styles.separator} />
 );
 
-const HomeScreen4 = () => {
+const AppButton = ({ onPress, title } :any) => (
+  <TouchableOpacity onPress={onPress} style={styles.appButtonContainer}>
+    <Text style={styles.appButtonText}>{title}</Text>
+  </TouchableOpacity>
+  
+);
+
+const EnvioToken = () => {
     const navigation = useNavigation();
     const handlePress = () => console.log("Text pressed");
     const [email, setEmail] = useState('')
@@ -34,26 +42,25 @@ const HomeScreen4 = () => {
                     value={importe}
                     keyboardType="numeric"
                 />
-                <Button 
-                title="ENVIAR" 
-                color= 'purple' 
-                onPress={() => Alert.alert("Enviado")}/>
+                <AppButton 
+                  title="ENVIAR" 
+                  size="sm" 
+                  backgroundColor='purple'
+                  onPress={() => Alert.alert("Enviado")} 
+                />
             </View>
-            <Image style={styles.Logo} source={require('./img/cartera.png')}/>
-            <Image style={styles.Logo2} source={require('./img/assa.png')}/>
-            <Image style={styles.Logo3} source={require('./img/intercambio.png')}/>
-            <Image style={styles.Logo4} source={require('./img/configuracion.png')}/>
         </SafeAreaView>
     )
 }
 
-export default HomeScreen4
+export default EnvioToken
 
 const styles = StyleSheet.create({
     container: {
       flex: 1,
       paddingTop: 50,
       alignItems: 'center',
+      alignContent: 'center',
 
     },
     title: {
@@ -93,29 +100,20 @@ const styles = StyleSheet.create({
       borderBottomColor: '#737373',
       borderBottomWidth: StyleSheet.hairlineWidth,
     },
-    Logo: {
-      width: 50,
-      height: 50,
-      left: '-40%',
-      top: 240,
+
+    appButtonContainer: {
+      elevation: 8,
+      backgroundColor: 'purple',
+      borderRadius: 10,
+      paddingVertical: 10,
+      paddingHorizontal: 12
     },
-    Logo2: {
-      width: 45,
-      height: 45,
-      left: '-15%',
-      top: 190,
-    },
-    Logo3: {
-      width: 45,
-      height: 45,
-      left: '15%',
-      top: 150
-    },
-    Logo4: {
-      width: 45,
-      height: 45,
-      left: '40%',
-      top: 100,
-    },
+    appButtonText: {
+      fontSize: 18,
+      color: "#fff",
+      fontWeight: "bold",
+      alignSelf: "center",
+      textTransform: "uppercase"
+    }, 
     
 });

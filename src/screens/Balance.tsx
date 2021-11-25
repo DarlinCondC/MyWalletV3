@@ -1,52 +1,86 @@
 //ventana de balance
 //elementos: balance sol, condor, botones enviar y recibir
-import React from 'react'
-import { View, Button, StyleSheet, SafeAreaView, Image, TextInput } from 'react-native'
+import * as React from 'react'
+import {Component} from 'react'
+import { View, Button, StyleSheet, SafeAreaView, Image, TextInput, TouchableOpacity, Text, Alert, Platform } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import { StatusBar } from 'expo-status-bar';
+import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack';
+import EnvioToken from './EnvioToken';
+import RecibirToken from './RecibirToken';
+
 
 const Separator = () => (
   <View style={styles.separator} />
 );
 
+const AppButton = ({ onPress, title } :any) => (
+  <TouchableOpacity onPress={onPress} style={styles.appButtonContainer}>
+    <Text style={styles.appButtonText}>{title}</Text>
+  </TouchableOpacity>
+  
+);
 
-const HomeScreen2 = () => {
-    const navigation = useNavigation();
+  export type RootStackParamList = {
+    Balance: undefined;
+    EnvioToken: undefined;
+    RecibirToken: undefined;
+  };
+const Stack = createStackNavigator<RootStackParamList>();
+
+export const RootNavigator = () => {
+return (
+  <Stack.Navigator initialRouteName="Balance">
+    <Stack.Screen
+      name="EnvioToken"
+      component={EnvioToken}
+    />
+    <Stack.Screen
+      name="RecibirToken"
+      component={RecibirToken}
+    />
+  </Stack.Navigator>
+);
+};
+
+const Balance = () => {
+  type homeScreenProp = StackNavigationProp<RootStackParamList, 'RecibirToken'>;
+    const navigation = useNavigation<homeScreenProp>();
+    const props = useNavigation();
     return (
+      
       <SafeAreaView style={styles.container}>
         <View>
           <Image style={styles.LogoCondor} source={require('./img/condor.png')}/>
           <TextInput style={styles.textInput} placeholder="CONDOR" />
           <Image style={styles.LogoSolana} source={require('./img/solana.png')}/>
           <TextInput style={styles.textInput2} placeholder="SOLANA" />
-          
-          
             <View style={styles.fixToText}>
-                <Button 
-                  title="Enviar"
-                  color= 'purple'
-                  onPress={() => navigation.navigate("Enviar CNDR")}
+                
+                <AppButton 
+                  title="ENVIAR"
+                  size="sm" 
+                  backgroundColor='purple'
+                  onPress={() => navigation.navigate("EnvioToken")} 
                 />
-                <Button 
-                  title="Recibir" 
-                  color= 'purple' 
-                  onPress={() => navigation.navigate("Recibir CNDR")} 
+                <AppButton 
+                  title="RECIBIR" 
+                  size="sm" 
+                  backgroundColor='purple'
+                  onPress={() => navigation.navigate("RecibirToken")} 
                 />
             </View>
-            <Image style={styles.Logo} source={require('./img/cartera.png')}/>
-            <Image style={styles.Logo2} source={require('./img/assa.png')}/>
-            <Image style={styles.Logo3} source={require('./img/intercambio.png')}/>
-            <Image style={styles.Logo4} source={require('./img/configuracion.png')}/>
         </View>
       </SafeAreaView>
     )
 }
 
-export default HomeScreen2
+export default Balance
 
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      paddingTop: 50,
+      paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
       alignItems: 'center',
       display: 'flex',
       flexDirection: "row",
@@ -129,31 +163,20 @@ const styles = StyleSheet.create({
       left: '35%',
       top: 10,
     },
-    Logo: {
-      width: 50,
-      height: 50,
-      left: '-18%',
-      top: 100,
+    appButtonContainer: {
+      elevation: 8,
+      backgroundColor: 'purple',
+      borderRadius: 10,
+      paddingVertical: 10,
+      paddingHorizontal: 12
     },
-    Logo2: {
-      width: 45,
-      height: 45,
-      left: '20%',
-      top: 53
-    },
-    Logo3: {
-      width: 45,
-      height: 45,
-      left: '64%',
-      top: 10
-    },
-    Logo4: {
-      width: 45,
-      height: 45,
-      left: '98%',
-      top: -35,
-    },
-    
+    appButtonText: {
+      fontSize: 18,
+      color: "#fff",
+      fontWeight: "bold",
+      alignSelf: "center",
+      textTransform: "uppercase"
+    },  
 });
 
 
