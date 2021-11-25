@@ -2,7 +2,7 @@
 //elementos: correo, contraseña y boton registrar
 import * as React from 'react'
 import {useState} from 'react'
-import { View, Text, Button, StyleSheet, SafeAreaView, Alert, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text, Button, StyleSheet, SafeAreaView, Alert, TextInput, TouchableOpacity, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 const Separator = () => (
@@ -22,16 +22,15 @@ const nuevaCuenta = () => {
     return (
         <SafeAreaView style={styles.container}>
         <View>
-          <Text style={styles.princ} numberOfLines={1} onPress={handlePress}>IMPORTAR CUENTA</Text>
+          
+          <Text style={styles.princ} numberOfLines={1} onPress={handlePress}>CREAR CUENTA</Text>
           <Separator />
           <Text style={styles.princ2} numberOfLines={3} onPress={handlePress}>Llave de acceso guarde estas 12 palabras en un lugar seguro, si olvidas tu contraseña,
             con estas palabras podras recuperar tu cuenta</Text>
-          <TextInput
-            style={styles.textInput}
-            onChangeText={text => setCuenta(text)}
-            placeholder="palabras"
-            value={cuenta}
-          />
+          <Separator />
+          <TouchableOpacity style={styles.nuevaCuenta}>
+            <Text>uno dos tres cuatro cinco seis siete ocho nueve diez once doce</Text>
+          </TouchableOpacity>
         </View>
         <Separator />
         <View>
@@ -44,6 +43,7 @@ const nuevaCuenta = () => {
             />
           </View>
         </View>
+        <Image style={styles.Logo} source={require('./img/condor.png')} />
       </SafeAreaView>
     )
 }
@@ -73,13 +73,18 @@ const styles = StyleSheet.create({
       padding: 10,
       alignItems: 'center'
     },
+    nuevaCuenta: {
+      top: 20,
+      alignItems: 'center',
+    },
     princ: {
       fontSize: 20,
       fontWeight: "bold",
       color: 'purple',
       alignItems: 'center',
       textAlign: 'center',
-      padding: 10
+      padding: 10,
+      top: -20
     },
     princ2: {
       fontSize: 15,
@@ -90,6 +95,7 @@ const styles = StyleSheet.create({
       padding: 10
     },
     fixToText: {
+      top: 30,
       flexDirection: 'row',
       justifyContent: 'center',
     },
@@ -111,6 +117,12 @@ const styles = StyleSheet.create({
       fontWeight: "bold",
       alignSelf: "center",
       textTransform: "uppercase"
+    },
+    Logo: {
+      top: 80,
+      width: 100,
+      height: 100,
+      alignItems: 'center'
     },
 });
 

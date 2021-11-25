@@ -2,7 +2,7 @@
 //elementos: correo, contraseña y boton registrar
 import * as React from 'react'
 import {useState} from 'react'
-import { View, Text, Button, StyleSheet, SafeAreaView, Alert, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text, Button, StyleSheet, SafeAreaView, Alert, TextInput, TouchableOpacity, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 const Separator = () => (
@@ -28,7 +28,7 @@ const Importar = () => {
           <TextInput
             style={styles.textInput}
             onChangeText={text => setCuenta(text)}
-            placeholder="palabras"
+            placeholder="Ingrese palabras"
             value={cuenta}
           />
         </View>
@@ -43,6 +43,7 @@ const Importar = () => {
             />
           </View>
         </View>
+        <Image style={styles.Logo} source={require('./img/condor.png')} />
       </SafeAreaView>
     )
 }
@@ -110,6 +111,12 @@ const styles = StyleSheet.create({
       fontWeight: "bold",
       alignSelf: "center",
       textTransform: "uppercase"
+    },
+    Logo: {
+      top: 30,
+      width: 100,
+      height: 100,
+      alignItems: 'center'
     },
 });
 
