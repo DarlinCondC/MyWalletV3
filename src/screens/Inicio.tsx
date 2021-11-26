@@ -58,14 +58,10 @@ const Inicio = () => {
           <Image style={styles.Logo} source={require('./img/condor.png')} />
         <View>
           <Text style={styles.princ} numberOfLines={1} onPress={handlePress}>CONDOR WALLET</Text>
-          
-          <Text style={styles.princ} numberOfLines={1} onPress={handlePress}>Bienvenido al Defi</Text>
-          
         </View>
         <Separator />
         <View>
           <View style={styles.fixToText}>
-            
             <AppButton 
               title="importar cuenta"
               size="sm" 
@@ -84,7 +80,6 @@ const Inicio = () => {
             <SocialIcon
               style={styles.Icons}
               type="facebook"
-              LinkTo= "https://www.facebook.com/Condor-Coin-108233578306800"
               onPress={() => {
                 Alert.alert('Facebook');
               }}
@@ -125,7 +120,7 @@ const styles1 = StyleSheet.create({
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      paddingBottom: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+      paddingBottom: Platform.OS === "android" ? 20 : StatusBar.length,
       alignItems: 'center',
       display: 'flex',
     },
@@ -147,11 +142,12 @@ const styles = StyleSheet.create({
     princ: {
       fontSize: 20,
       fontWeight: "bold",
-      color: 'purple',
+      color: '#8b008b',
       alignItems: 'center',
       textAlign: 'center',
     },
     fixToText: {
+      top: 20,
       flexDirection: 'column',
       justifyContent: 'space-between',
     },

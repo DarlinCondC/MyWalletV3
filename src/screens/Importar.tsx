@@ -43,7 +43,7 @@ const Importar = () => {
             />
           </View>
         </View>
-        <Image style={styles.Logo} source={require('./img/condor.png')} />
+        <Image style={styles.Logo} source={require('./img/condor2.png')} />
       </SafeAreaView>
     )
 }
@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
       padding: 10
     },
     fixToText: {
+      top: -30,
       flexDirection: 'row',
       justifyContent: 'center',
     },

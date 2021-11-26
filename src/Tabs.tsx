@@ -5,6 +5,7 @@ import HomeStackScreen from '../stacks/HomeStackScreen';
 import SettingsStackScreen from '../stacks/SettingsStackScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Configuracion from './screens/Configuracion';
 
 
 
@@ -16,6 +17,7 @@ const Tabs = () => {
         <NavigationContainer>
             <Tab.Navigator screenOptions={{headerShown:false}}>
                 <Tab.Screen name="Menu Principal" component={HomeStackScreen} />
+                <Tab.Screen name="Configuración" component={Configuracion} />
                 
             </Tab.Navigator>
         </NavigationContainer>

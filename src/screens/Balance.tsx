@@ -2,9 +2,9 @@
 //elementos: balance sol, condor, botones enviar y recibir
 import * as React from 'react'
 import {Component} from 'react'
-import { View, Button, StyleSheet, SafeAreaView, Image, TextInput, TouchableOpacity, Text, Alert, Platform } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
-import { StatusBar } from 'expo-status-bar';
+import { View, Button, StyleSheet, SafeAreaView, Image, TextInput, TouchableOpacity, Text, Alert, Platform, StatusBar } from 'react-native'
+import { useNavigation, StackActions } from '@react-navigation/native'
+//import { StatusBar } from 'expo-status-bar';
 import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack';
 import EnvioToken from './EnvioToken';
 import RecibirToken from './RecibirToken';
@@ -42,6 +42,8 @@ return (
   </Stack.Navigator>
 );
 };
+
+
 
 const Balance = () => {
   type homeScreenProp = StackNavigationProp<RootStackParamList, 'RecibirToken'>;
