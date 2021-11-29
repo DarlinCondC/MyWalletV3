@@ -46,7 +46,7 @@ export const RootNavigator = () => {
 };
 
 const Inicio = () => {
-  type homeScreenProp = StackNavigationProp<RootStackParamList, 'nuevaCuenta'>;
+  type homeScreenProp = StackNavigationProp<RootStackParamList, 'Inicio'>;
     const navigation = useNavigation<homeScreenProp>();
 
     const handlePress = () => console.log("Text pressed");
@@ -57,7 +57,7 @@ const Inicio = () => {
         <SafeAreaView style={styles.container}>
           <Image style={styles.Logo} source={require('./img/condor.png')} />
         <View>
-          <Text style={styles.princ} numberOfLines={1} onPress={handlePress}>CONDOR WALLET</Text>
+          <Text style={styles.princ} numberOfLines={1} onPress={handlePress}>MOUNTAIN WALLET</Text>
         </View>
         <Separator />
         <View>

@@ -4,6 +4,7 @@ import * as React from 'react'
 import {useState} from 'react'
 import { View, Text, Button, StyleSheet, SafeAreaView, Alert, TextInput, TouchableOpacity, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import { CommonActions } from '@react-navigation/native';
 
 const Separator = () => (
     <View style={styles.separator} />
@@ -18,6 +19,20 @@ const Importar = () => {
     const navigation = useNavigation();
     const handlePress = () => console.log("Text pressed");
     const [cuenta, setCuenta] = useState('')
+    /*
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 1,
+        routes: [
+          {
+            name: 'Balance',
+            
+          },
+        ],
+      })
+    );
+    */
+
 
     return (
         <SafeAreaView style={styles.container}>
@@ -39,7 +54,7 @@ const Importar = () => {
               title="IMPORTAR" 
               size="sm" 
               backgroundColor='purple'
-              onPress={() => navigation.navigate("Balance")} 
+              onPress={() => navigation.navigate("Balance" as any)} 
             />
           </View>
         </View>

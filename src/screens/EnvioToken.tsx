@@ -2,8 +2,9 @@
 //elementos: direccion publica, monto y boton enviar
 import * as React from 'react'
 import {useState} from 'react'
-import { View, Text, Button, StyleSheet, SafeAreaView, SectionList, TextInput, Alert, Image,TouchableOpacity } from 'react-native'
+import { View, Text, Button, StyleSheet, SafeAreaView, SectionList, TextInput, Alert, Image,TouchableOpacity, Platform, StatusBar } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import { Icon, Input } from 'react-native-elements';
 
 const Separator = () => (
     <View style={styles.separator} />
@@ -28,20 +29,18 @@ const EnvioToken = () => {
             <Separator />
             <Image style={styles.LogoCond} source={require('./img/condor.png')} />
             <Text style={styles.depo} numberOfLines={1} onPress={handlePress}>Depositar</Text>
-            
-                <TextInput
-                    style={styles.textInput}
-                    onChangeText={text => setEmail(text)}
-                    placeholder="Dirección de CNDR del destinatario"
-                    value={email}
-                />
-                <TextInput
-                    style={styles.textInput}
-                    onChangeText={text => setImporte(text)}
-                    placeholder="Importe"
-                    value={importe}
-                    keyboardType="numeric"
-                />
+              <Input
+                style={styles.input}
+                placeholder='Dirección del destinatario'
+                rightIcon={{ type: 'font-awesome', name: 'user' }}
+                
+              /> 
+              <Input
+                style={styles.input}
+                placeholder='Importe'
+                rightIcon={{ type: 'font-awesome', name: 'dollar' }}
+                
+              />               
                 <AppButton 
                   title="ENVIAR" 
                   size="sm" 
@@ -58,9 +57,9 @@ export default EnvioToken
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      paddingTop: 50,
       alignItems: 'center',
       alignContent: 'center',
+      paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
 
     },
     title: {
@@ -73,14 +72,12 @@ const styles = StyleSheet.create({
     LogoCond: {
       width: 80,
       height: 80,
-      left: '30%',
+      left: '1%',
       top: 5,
     },
-    textInput: {
-      height: 40,
-      width: 300,
+    input: {
+      
       margin: 12,
-      borderWidth: 1,
       padding: 10,
       alignItems: 'center'
     },
@@ -99,6 +96,9 @@ const styles = StyleSheet.create({
       marginVertical: 8,
       borderBottomColor: '#737373',
       borderBottomWidth: StyleSheet.hairlineWidth,
+    },
+    button: {
+      color: 'purple'
     },
 
     appButtonContainer: {

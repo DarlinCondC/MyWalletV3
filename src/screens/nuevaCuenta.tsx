@@ -4,6 +4,10 @@ import * as React from 'react'
 import {useState} from 'react'
 import { View, Text, Button, StyleSheet, SafeAreaView, Alert, TextInput, TouchableOpacity, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import { CommonActions } from '@react-navigation/native';
+import { Stack } from 'react-native-router-flux';
+import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack';
+import Balance from './Balance';
 
 const Separator = () => (
     <View style={styles.separator} />
@@ -14,10 +18,26 @@ const AppButton = ({ onPress, title } :any) => (
   </TouchableOpacity>
   
 );
+
+
 const nuevaCuenta = () => {
     const navigation = useNavigation();
     const handlePress = () => console.log("Text pressed");
     const [cuenta, setCuenta] = useState('')
+    
+    /* 
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [
+          {
+            name: 'Balance',
+            
+          },
+        ],
+      })
+    );
+    */
 
     return (
         <SafeAreaView style={styles.container}>
@@ -39,13 +59,16 @@ const nuevaCuenta = () => {
               title="GUARDE MI CONTRASEÑA" 
               size="sm" 
               backgroundColor='purple'
-              onPress={() => navigation.navigate("Balance")} 
+              onPress={() => navigation.navigate("Balance" as any) } 
             />
           </View>
         </View>
         <Image style={styles.Logo} source={require('./img/condor.png')} />
       </SafeAreaView>
+    
     )
+
+  
 }
 
 export default nuevaCuenta
